@@ -7,16 +7,22 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
     public float MovementSpeed = 5;
     public float Gravity = 9.8f;
-    public float gravityModifier;
+    public float gravityModifier = 1f;
     public float jumpSpeed;
-    private float velocity = 0;
-    public bool isOnGround = true;
+
+    public float jumpForce;
+    public bool IsOnGround = true;
+    public bool isJumping = false;
+    private Vector3 _defaultGravity = new Vector3(0f, -9.81f, 0f);
+
+    public float velocity = 0;
     private Rigidbody playerRb;
 
     private Camera cam;
 
     private void Start()
     {
+        Physics.gravity = _defaultGravity;
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
         playerRb = GetComponent<Rigidbody>();
@@ -52,17 +58,27 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround == true)
         {
-            
+            velocity = Gravity * Time.deltaTime + 0.5f;
+            IsOnGround = false;
+            isJumping = true;
         }
+        
+
+           
 
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isOnGround = true;
+            
+            IsOnGround = true;
+            isJumping = false;
+
         }
+
     }
-}
+
+    }
