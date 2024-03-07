@@ -58,25 +58,19 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround == true)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            velocity = Gravity * Time.deltaTime + 0.5f;
+            velocity = 0.5f + Gravity;
             IsOnGround = false;
             isJumping = true;
         }
-        
-
-           
-
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            
             IsOnGround = true;
             isJumping = false;
-
         }
 
     }
