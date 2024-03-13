@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float Gravity = 9.8f;
     public float gravityModifier = 1f;
     public float jumpSpeed;
+    public float health = 100;
 
     public float jumpForce;
     public bool IsOnGround = true;
@@ -72,7 +73,13 @@ public class PlayerController : MonoBehaviour
             IsOnGround = true;
             isJumping = false;
         }
+    
+        if (collision.gameObject.CompareTag("Goomba"))
+        {
+            //health
+            health = health - 1;
+        }
 
     }
 
-    }
+   }

@@ -75,5 +75,11 @@ public class FPSController : MonoBehaviour
         }
 
         #endregion
+
+        
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
     }
 }

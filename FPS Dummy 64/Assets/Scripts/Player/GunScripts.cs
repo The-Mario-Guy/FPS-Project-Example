@@ -13,15 +13,19 @@ public class GunScripts : MonoBehaviour
     public bool isReloading;
     public bool isShooting;
     public bool isIdle;
+    public bool isWalking;
     public TextMeshProUGUI amoCount;
     public Animator _animator;
     public Animator _face;
     public GameObject shotGun;
     public GameObject marioSate;
+    public AudioSource shot;
+    public AudioSource reload;
 
     private void Start()
     {
         _animator = shotGun.GetComponent<Animator>();
+        shot = GetComponent<AudioSource>();
         _face = marioSate.GetComponent<Animator>();
         amoCount.text = amo.ToString();
     }
@@ -30,6 +34,7 @@ public class GunScripts : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && amo > 0)
         {
             isShooting = true;
+            shot.Play(1);
             amo = amo - 1;
             amoCount.text = amo.ToString();
             var newBullet = Instantiate(projectile, transform.position, transform.rotation);
@@ -58,8 +63,11 @@ public class GunScripts : MonoBehaviour
 
 
         }
+        
         //Gun Animations
         _animator.SetBool("isReloading", isReloading);
+        _animator.SetBool("isWalking", isWalking);
+        _animator.SetBool("isShooting", isShooting);
 
         //Mario Face Animations
         _face.SetBool("isShooting", isShooting);
@@ -67,6 +75,7 @@ public class GunScripts : MonoBehaviour
 
     private IEnumerator shotGunReload()
     {
+        reload.Play(1);
         isReloading = true;
         yield return new WaitForSeconds(0.48f);
         amo = 15;

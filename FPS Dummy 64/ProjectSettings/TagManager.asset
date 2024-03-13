@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Bullet
+  - Goomba
   layers:
   - Default
   - TransparentFX
