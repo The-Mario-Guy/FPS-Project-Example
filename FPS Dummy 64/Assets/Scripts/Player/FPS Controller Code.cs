@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 [RequireComponent(typeof(CharacterController))]
 public class FPSController : MonoBehaviour
@@ -11,6 +13,18 @@ public class FPSController : MonoBehaviour
     public float jumpPower = 7f;
     public float gravity = 10f;
 
+    public TextMeshProUGUI healthCounter;
+
+    //Health
+    public float health = 100f;
+    private float healthMinus = -1f;
+    public GameObject shotGun;
+    //Mario Face
+    public GameObject marioSate;
+    public Animator _face;
+    public Animator _death;
+    public bool isHurt;
+    public bool isDead;
 
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
@@ -21,13 +35,16 @@ public class FPSController : MonoBehaviour
 
     public bool canMove = true;
 
-    
+
     CharacterController characterController;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        healthCounter.text = health.ToString();
+        _face = marioSate.GetComponent<Animator>();
+        _death = playerCamera.GetComponent<Animator>();
     }
 
     void Update()
@@ -73,13 +90,42 @@ public class FPSController : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
-
+        _face.SetBool("isHurt", isHurt);
+        _death.SetBool("isDead", isDead);
         #endregion
 
-        
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
+        //health
 
+        if (health <=0)
+        {
+            health = 0;
+            healthCounter.text = health.ToString();
+            isDead = true;
+            shotGun.SetActive(false);
+            walkSpeed = 0;
+            runSpeed = 0;
+        }
+
+
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Goomba"))
+        {
+            StartCoroutine(Hurt());
+        }
+        else
+        {
+            isHurt = false;
+        }
+    }
+
+    private IEnumerator Hurt()
+    {
+        isHurt = true;
+        health = health - 1;
+        healthCounter.text = health.ToString();
+        yield return new WaitForSeconds(0.4f);
+        isHurt = false;
     }
 }
