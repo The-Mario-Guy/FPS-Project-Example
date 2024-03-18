@@ -15,6 +15,8 @@ public class GunScripts : MonoBehaviour
     public bool isIdle;
     public bool isWalking;
     public TextMeshProUGUI amoCount;
+    public TextMeshProUGUI killCount;
+    public float kills;
     public Animator _animator;
     public Animator _face;
     public GameObject shotGun;
@@ -22,12 +24,20 @@ public class GunScripts : MonoBehaviour
     public AudioSource shot;
     public AudioSource reload;
 
+    private Enemy enemyScript;
+    public GameObject enemyObject;
+    public float eHealth;
+
     private void Start()
     {
         _animator = shotGun.GetComponent<Animator>();
         shot = GetComponent<AudioSource>();
         _face = marioSate.GetComponent<Animator>();
         amoCount.text = amo.ToString();
+        killCount.text = kills.ToString();
+
+        enemyScript = enemyObject.GetComponent<Enemy>();
+        eHealth = enemyScript.enemyHealth;
     }
     void Update()
     {
@@ -87,6 +97,17 @@ public class GunScripts : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         isShooting = false;
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (projectile.gameObject.CompareTag("Enemy"))
+        {
+           if (eHealth <= 0)
+            {
+                Destroy(other.gameObject);
+            }
+        }
     }
 
 }

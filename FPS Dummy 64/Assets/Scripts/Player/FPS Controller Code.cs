@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -39,6 +40,7 @@ public class FPSController : MonoBehaviour
     CharacterController characterController;
     void Start()
     {
+
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -91,6 +93,7 @@ public class FPSController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
         _face.SetBool("isHurt", isHurt);
+        _face.SetBool("isDead", isDead);
         _death.SetBool("isDead", isDead);
         #endregion
 
@@ -98,12 +101,7 @@ public class FPSController : MonoBehaviour
 
         if (health <=0)
         {
-            health = 0;
-            healthCounter.text = health.ToString();
-            isDead = true;
-            shotGun.SetActive(false);
-            walkSpeed = 0;
-            runSpeed = 0;
+            StartCoroutine(dead());
         }
 
 
@@ -127,5 +125,16 @@ public class FPSController : MonoBehaviour
         healthCounter.text = health.ToString();
         yield return new WaitForSeconds(0.4f);
         isHurt = false;
+    }
+    private IEnumerator dead()
+    {
+        health = 0;
+        healthCounter.text = health.ToString();
+        isDead = true;
+        shotGun.SetActive(false);
+        walkSpeed = 0;
+        runSpeed = 0;
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
