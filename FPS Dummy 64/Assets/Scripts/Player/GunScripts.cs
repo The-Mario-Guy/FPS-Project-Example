@@ -34,10 +34,8 @@ public class GunScripts : MonoBehaviour
         shot = GetComponent<AudioSource>();
         _face = marioSate.GetComponent<Animator>();
         amoCount.text = amo.ToString();
-        killCount.text = kills.ToString();
 
-        enemyScript = enemyObject.GetComponent<Enemy>();
-        eHealth = enemyScript.enemyHealth;
+
     }
     void Update()
     {

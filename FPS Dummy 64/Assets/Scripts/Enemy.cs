@@ -45,19 +45,16 @@ public class Enemy : MonoBehaviour
 
         }
 
-        if (playerHealth == 0)
+        if (FPSControllerscript.health == 0)
         {
-            if (Vector3.Distance(transform.position, enemyHome.position) >= MinDist)
-            {
-                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-
-            }
+            MoveSpeed = -MoveSpeed;
         }
         if (enemyHealth == 0)
         {
             killed = killed + 1;
             Destroy(this.gameObject);
         }
+        
     }
 
     void OnCollisionEnter(Collision other)
@@ -68,6 +65,21 @@ public class Enemy : MonoBehaviour
             enemyHealth = enemyHealth - 1;
             Destroy(other.gameObject);
         }
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") && playerHealth > 0 )
+        {
+            Debug.Log("Player Hit!");
+            playerHealth = playerHealth - 1;
+            FPSControllerscript.health = playerHealth;
+
+
+        }
+        if (FPSControllerscript.health == 0)
+        {
+            MoveSpeed = MoveSpeed - 8;
+        }
     }
 }
