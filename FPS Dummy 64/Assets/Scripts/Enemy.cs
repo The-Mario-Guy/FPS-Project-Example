@@ -7,16 +7,20 @@ public class Enemy : MonoBehaviour
     public Transform Player;
     private FPSController FPSControllerscript;
     public GameObject playerObject;
-    public Transform enemyHome;
     public float playerHealth;
     public int MoveSpeed = 4;
-    public int noSpeed = 0;
     public int MaxDist = 10;
     public int MinDist = 5;
     public float enemyHealth = 2;
-    public FPSController PlayerController;
+    private FPSController PlayerController;
 
     public float killed;
+
+    //Gun Stuff
+    public Rigidbody projectile;
+    public float bulletSpeed = 1000;
+    public bool canShoot;
+    public GameObject finger;
 
 
 
@@ -25,6 +29,7 @@ public class Enemy : MonoBehaviour
     {
         FPSControllerscript = playerObject.GetComponent<FPSController>();
         playerHealth = FPSControllerscript.health;
+        finger.SetActive(false);
     }
 
     void Update()
@@ -33,14 +38,14 @@ public class Enemy : MonoBehaviour
 
         if (Vector3.Distance(transform.position, Player.position) >= MinDist)
         {
-
+            finger.SetActive(false);
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
 
 
-            if (Vector3.Distance(transform.position, Player.position) <= MaxDist)
+            if (Vector3.Distance(transform.position, Player.position) <= MaxDist && canShoot == true)
             {
-                transform.position += transform.forward * -MoveSpeed * Time.deltaTime;
+                StartCoroutine(shooting());
             }
 
         }
@@ -81,5 +86,14 @@ public class Enemy : MonoBehaviour
         {
             MoveSpeed = MoveSpeed - 8;
         }
+    }
+
+    private IEnumerator shooting()
+    {
+        finger.SetActive(true);
+        var newBullet = Instantiate(projectile, transform.position, transform.rotation);
+        newBullet.velocity = transform.forward * bulletSpeed;
+        yield return new WaitForSeconds(2f);
+
     }
 }

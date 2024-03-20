@@ -116,6 +116,36 @@ public class FPSController : MonoBehaviour
         {
             isHurt = false;
         }
+
+        if (other.gameObject.CompareTag("EnemyBullet"))
+        {
+            StartCoroutine(Hurt());
+        }
+        else
+        {
+            isHurt = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Goomba"))
+        {
+            StartCoroutine(Hurt());
+        }
+        else
+        {
+            isHurt = false;
+        }
+
+        if (other.gameObject.CompareTag("EnemyBullet"))
+        {
+            StartCoroutine(Hurt());
+        }
+        else
+        {
+            isHurt = false;
+        }
     }
 
     private IEnumerator Hurt()
