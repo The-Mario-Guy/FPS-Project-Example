@@ -15,4 +15,14 @@ public class BulletLength : MonoBehaviour
 
         Destroy(gameObject);
     }*/
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
+
+

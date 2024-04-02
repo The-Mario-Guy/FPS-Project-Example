@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public int MaxDist = 10;
     public int MinDist = 5;
     public float enemyHealth = 2;
+
+    public bool isHurt;
     private FPSController PlayerController;
 
     public float killed;
@@ -22,6 +24,9 @@ public class Enemy : MonoBehaviour
     public bool canShoot;
     public GameObject finger;
 
+    private float gunHeat;
+
+    private const float TimeBetweenShots = 0.25f;
 
 
 
@@ -29,6 +34,7 @@ public class Enemy : MonoBehaviour
     {
         FPSControllerscript = playerObject.GetComponent<FPSController>();
         playerHealth = FPSControllerscript.health;
+        isHurt = FPSControllerscript.isHurt;
         finger.SetActive(false);
     }
 
@@ -36,15 +42,15 @@ public class Enemy : MonoBehaviour
     {
         transform.LookAt(Player);
 
+        playerHealth = FPSControllerscript.health;
         if (Vector3.Distance(transform.position, Player.position) >= MinDist)
         {
             finger.SetActive(false);
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
-
-
             if (Vector3.Distance(transform.position, Player.position) <= MaxDist && canShoot == true)
             {
+                finger.SetActive(true);
                 StartCoroutine(shooting());
             }
 
@@ -59,7 +65,11 @@ public class Enemy : MonoBehaviour
             killed = killed + 1;
             Destroy(this.gameObject);
         }
-        
+        if (gunHeat > 0)
+        {
+            gunHeat -= Time.deltaTime;
+        }
+
     }
 
     void OnCollisionEnter(Collision other)
@@ -79,7 +89,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("Player Hit!");
             playerHealth = playerHealth - 1;
             FPSControllerscript.health = playerHealth;
-
+            isHurt = true;
 
         }
         if (FPSControllerscript.health == 0)
@@ -90,10 +100,10 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator shooting()
     {
-        finger.SetActive(true);
         var newBullet = Instantiate(projectile, transform.position, transform.rotation);
         newBullet.velocity = transform.forward * bulletSpeed;
-        yield return new WaitForSeconds(2f);
-
+        yield return new WaitForSeconds(1f);
+        newBullet.velocity = transform.forward * bulletSpeed;
+        yield return new WaitForSeconds(1f);
     }
 }

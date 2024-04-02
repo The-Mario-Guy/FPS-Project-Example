@@ -20,12 +20,14 @@ public class FPSController : MonoBehaviour
     public float health = 100f;
     private float healthMinus = -1f;
     public GameObject shotGun;
+    public GameObject gModeHealth;
     //Mario Face
     public GameObject marioSate;
     public Animator _face;
     public Animator _death;
     public bool isHurt;
     public bool isDead;
+    public bool gMode;
 
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
@@ -47,6 +49,7 @@ public class FPSController : MonoBehaviour
         healthCounter.text = health.ToString();
         _face = marioSate.GetComponent<Animator>();
         _death = playerCamera.GetComponent<Animator>();
+        gModeHealth.SetActive(false);
     }
 
     void Update()
@@ -95,6 +98,7 @@ public class FPSController : MonoBehaviour
         _face.SetBool("isHurt", isHurt);
         _face.SetBool("isDead", isDead);
         _death.SetBool("isDead", isDead);
+        _face.SetBool("gMode", gMode);
         #endregion
 
         //health
@@ -104,6 +108,12 @@ public class FPSController : MonoBehaviour
             StartCoroutine(dead());
         }
 
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            gMode = true;
+            health = 99999999999999999;
+            gModeHealth.SetActive(true);
+        }
 
     }
     private void OnTriggerStay(Collider other)

@@ -9,6 +9,7 @@ TagManager:
   - Goomba
   - Home
   - EnemyBullet
+  - Wall
   layers:
   - Default
   - TransparentFX
