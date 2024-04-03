@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BodyCamTimer : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class BodyCamTimer : MonoBehaviour
         if (timerType == TimerType.Countdown && timeToDisplay < 0.0f)
         {
             EventManager.OnTimerStop();
+            SceneManager.LoadScene(1);
             return;
         }
 
@@ -52,4 +54,5 @@ public class BodyCamTimer : MonoBehaviour
         //_timerText.text = timeSpan.ToString(@"mm\:ss\:ff");
         _timerText.text = timeSpan.ToString(@"mm\:ss");
     }
+
 }
