@@ -23,10 +23,10 @@ public class Enemy : MonoBehaviour
     public float bulletSpeed = 1000;
     public bool canShoot;
     public GameObject finger;
-
+    private bool isShooting = false;
     private float gunHeat;
 
-    private const float TimeBetweenShots = 0.25f;
+    private const float TimeBetweenShots = 2f;
 
 
 
@@ -48,11 +48,13 @@ public class Enemy : MonoBehaviour
             finger.SetActive(false);
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
-            if (Vector3.Distance(transform.position, Player.position) <= MaxDist && canShoot == true)
-            {
+        if (Vector3.Distance(transform.position, Player.position) <= MaxDist && canShoot == true)
+        {
                 finger.SetActive(true);
                 StartCoroutine(shooting());
-            }
+         }
+
+
 
         }
 
@@ -100,10 +102,14 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator shooting()
     {
-        var newBullet = Instantiate(projectile, transform.position, transform.rotation);
-        newBullet.velocity = transform.forward * bulletSpeed;
-        yield return new WaitForSeconds(1f);
-        newBullet.velocity = transform.forward * bulletSpeed;
-        yield return new WaitForSeconds(1f);
+        while (canShoot)
+        {
+            isShooting = true; // Set flag to indicate that shooting is in progress
+            var newBullet = Instantiate(projectile, transform.position, transform.rotation);
+            newBullet.velocity = transform.forward * bulletSpeed;
+            yield return new WaitForSeconds(TimeBetweenShots); // Wait for the specified delay
+            isShooting = false; // Reset flag to indicate that shooting has finished
+        }
+           
     }
 }

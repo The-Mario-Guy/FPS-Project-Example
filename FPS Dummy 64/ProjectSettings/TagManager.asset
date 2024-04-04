@@ -11,6 +11,8 @@ TagManager:
   - EnemyBullet
   - Wall
   - Text
+  - PowerUp
+  - Mega
   layers:
   - Default
   - TransparentFX

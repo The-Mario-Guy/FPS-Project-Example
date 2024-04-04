@@ -32,6 +32,10 @@ public class FPSController : MonoBehaviour
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
 
+    //MegaMushroom
+    public float scaleMultiplier = 4f;
+    public float duration = 5f;
+    private Vector3 originalScale;
 
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
@@ -50,6 +54,7 @@ public class FPSController : MonoBehaviour
         _face = marioSate.GetComponent<Animator>();
         _death = playerCamera.GetComponent<Animator>();
         gModeHealth.SetActive(false);
+        originalScale = transform.localScale; //Player's OG scale
     }
 
     void Update()
@@ -156,6 +161,12 @@ public class FPSController : MonoBehaviour
         {
             isHurt = false;
         }
+
+        if (other.gameObject.CompareTag("Mega"))
+        {
+            Destroy(other.gameObject);
+            StartCoroutine(MegaMushroom());
+        }
     }
 
     private IEnumerator Hurt()
@@ -176,5 +187,17 @@ public class FPSController : MonoBehaviour
         runSpeed = 0;
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private IEnumerator MegaMushroom()
+    {
+        // Scale the player
+        transform.localScale *= scaleMultiplier;
+
+        // Wait for the specified duration
+        yield return new WaitForSeconds(duration);
+
+        // Reset the scale of the player back to its original scale
+        transform.localScale = originalScale;
     }
 }
