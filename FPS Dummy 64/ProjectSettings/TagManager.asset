@@ -13,6 +13,7 @@ TagManager:
   - Text
   - PowerUp
   - Mega
+  - Star
   layers:
   - Default
   - TransparentFX

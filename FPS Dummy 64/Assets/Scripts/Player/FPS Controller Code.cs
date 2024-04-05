@@ -34,8 +34,13 @@ public class FPSController : MonoBehaviour
 
     //MegaMushroom
     public float scaleMultiplier = 4f;
-    public float duration = 5f;
+    public float duration = 8f;
     private Vector3 originalScale;
+    private bool isMega;
+
+    //Star
+    private bool hasStar;
+    public BoxCollider boxCol; 
 
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
@@ -162,10 +167,16 @@ public class FPSController : MonoBehaviour
             isHurt = false;
         }
 
-        if (other.gameObject.CompareTag("Mega"))
+        if (other.gameObject.CompareTag("Mega") && !isMega)
         {
-            Destroy(other.gameObject);
+           // Destroy(other.gameObject);
             StartCoroutine(MegaMushroom());
+        }
+
+        if (other.gameObject.CompareTag("Star") && !hasStar)
+        {
+
+            StartCoroutine(starPowerUp());
         }
     }
 
@@ -191,13 +202,33 @@ public class FPSController : MonoBehaviour
 
     private IEnumerator MegaMushroom()
     {
+        isMega = true;
         // Scale the player
         transform.localScale *= scaleMultiplier;
+        health = health + 50;
+        healthCounter.text = health.ToString();
 
         // Wait for the specified duration
         yield return new WaitForSeconds(duration);
 
         // Reset the scale of the player back to its original scale
         transform.localScale = originalScale;
+
+        health = health - 50;
+        healthCounter.text = health.ToString();
+        isMega = false;
+    }
+    private IEnumerator starPowerUp()
+    {
+        hasStar = true;
+        health = health + 9999999;
+        healthCounter.text = health.ToString();
+        walkSpeed = walkSpeed + 6;
+        runSpeed = runSpeed + 6;
+        yield return new WaitForSeconds(10f);
+        health = health - 9999999;
+        walkSpeed = walkSpeed - 6;
+        runSpeed = runSpeed - 6;
+        hasStar = false;
     }
 }
