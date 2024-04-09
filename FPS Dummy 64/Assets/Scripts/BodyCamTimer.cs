@@ -44,7 +44,7 @@ public class BodyCamTimer : MonoBehaviour
         if (timerType == TimerType.Countdown && timeToDisplay < 0.0f)
         {
             EventManager.OnTimerStop();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(3);
             return;
         }
 

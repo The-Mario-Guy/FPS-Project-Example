@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Bottles
+    second: {fileID: 2100000, guid: 02894bdffa473496b99145f14ce53ac2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Floor
     second: {fileID: 2100000, guid: 177cdf94b3892417d90cb6993250aa1a, type: 2}
   - first:
@@ -19,6 +24,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Outside
     second: {fileID: 2100000, guid: 6773159c8820046638e2480bddccba8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shelf
+    second: {fileID: 2100000, guid: 9462387fd77a54f2a9e71193597a5750, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
