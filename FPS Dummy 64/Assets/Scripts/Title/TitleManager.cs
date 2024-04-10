@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
-    public GameObject menu;
+    public GameObject titleManager;
+    public int sceneNumber;
+    public Animator _startFade;
+    public bool starting;
     void Start()
     {
-        menu.SetActive(false);
+      
     }
 
     // Update is called once per frame
@@ -16,16 +19,22 @@ public class TitleManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
-
-            menu.SetActive(true);
+            StartCoroutine(startGame());
         }
+        _startFade.SetBool("starting", starting);
     }
     public void loadMain()
     {
-        SceneManager.LoadScene(3);
+        
     }
     public void Quit()
     {
         Application.Quit();
+    }
+    IEnumerator startGame()
+    {
+        starting = true;
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(sceneNumber);
     }
 }
