@@ -68,6 +68,10 @@ public class GunScripts : MonoBehaviour
             {
                 StartCoroutine(shotGunReload());
             }
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                StartCoroutine(shotGunReload());
+            }
 
 
         }

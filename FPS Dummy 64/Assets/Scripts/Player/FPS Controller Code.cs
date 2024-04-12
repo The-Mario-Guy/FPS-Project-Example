@@ -32,6 +32,9 @@ public class FPSController : MonoBehaviour
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
 
+    //Starting Game
+    public AudioSource letsgo;
+
     //MegaMushroom
     public float scaleMultiplier = 4f;
     public float duration = 8f;
@@ -51,7 +54,8 @@ public class FPSController : MonoBehaviour
     CharacterController characterController;
     void Start()
     {
-
+        letsgo = GetComponent<AudioSource>();
+        letsgo.Play(1);
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -169,7 +173,8 @@ public class FPSController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Mega") && !isMega)
         {
-           // Destroy(other.gameObject);
+            // Destroy(other.gameObject);
+            letsgo.Play(1);
             StartCoroutine(MegaMushroom());
         }
 

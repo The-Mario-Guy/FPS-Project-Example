@@ -12,6 +12,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Curtains
+    second: {fileID: 2100000, guid: ce6e7eb4d9306483f9dbdddc958db42a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cushion
+    second: {fileID: 2100000, guid: c3abde6af66504cfaa2661f64e729fc9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: DarkWood
     second: {fileID: 2100000, guid: 0b6a451f592c54a58a05c0266c2268d9, type: 2}
   - first:
@@ -42,6 +52,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 7c8e770b327004766a32653d64eea0bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Outside
     second: {fileID: 2100000, guid: 6773159c8820046638e2480bddccba8b, type: 2}
   - first:
@@ -59,6 +74,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Thingy
     second: {fileID: 2100000, guid: 8209cd5ceab38493395c95acbbec7ce9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood Stage
+    second: {fileID: 2100000, guid: 8b2ba137f5fd74c2bbc415c0fe8d8d79, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
