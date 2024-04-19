@@ -12,6 +12,7 @@ public class TitleManager : MonoBehaviour
     public bool titleCard;
     public int titleCardSecs;
     public GameObject credits;
+    public GameObject instructions;
     public AudioSource start;
     void Start()
     {
@@ -33,6 +34,14 @@ public class TitleManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V) && !titleCard)
         {
             credits.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.I) && !titleCard)
+        {
+            instructions.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.V) && !titleCard)
+        {
+            instructions.SetActive(false);
         }
         _startFade.SetBool("starting", starting);
 

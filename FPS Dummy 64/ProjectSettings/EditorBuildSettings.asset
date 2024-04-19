@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OoT.unity
     guid: 10884754f41174da78b5fd3bcb9c8fb9
+  - enabled: 1
+    path: Assets/Scenes/End Game.unity
+    guid: 7bf75d16cc0d64f3cbbc9c02c7c42d87
   m_configObjects: {}

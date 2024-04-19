@@ -46,13 +46,19 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(transform.position, Player.position) >= MinDist)
         {
             finger.SetActive(false);
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            MoveSpeed = 0;
 
         if (Vector3.Distance(transform.position, Player.position) <= MaxDist && canShoot == true)
         {
                 finger.SetActive(true);
                 StartCoroutine(shooting());
          }
+            if (Vector3.Distance(transform.position, Player.position) <= MaxDist)
+            {
+                finger.SetActive(false);
+                MoveSpeed = 5;
+                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            }
 
 
 

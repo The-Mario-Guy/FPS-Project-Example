@@ -13,6 +13,7 @@ public class FPSController : MonoBehaviour
     public float runSpeed = 12f;
     public float jumpPower = 7f;
     public float gravity = 10f;
+    public GameObject musicFader;
 
     public TextMeshProUGUI healthCounter;
 
@@ -52,6 +53,12 @@ public class FPSController : MonoBehaviour
 
 
     CharacterController characterController;
+
+    //Music Stuff
+    public AudioSource MusicSource;
+    public bool musicFadeOutEnabled = false;
+
+
     void Start()
     {
         letsgo = GetComponent<AudioSource>();
@@ -64,6 +71,8 @@ public class FPSController : MonoBehaviour
         _death = playerCamera.GetComponent<Animator>();
         gModeHealth.SetActive(false);
         originalScale = transform.localScale; //Player's OG scale
+        PlayerMusic();
+
     }
 
     void Update()
@@ -117,7 +126,7 @@ public class FPSController : MonoBehaviour
 
         //health
 
-        if (health <=0)
+        if (health <= 0)
         {
             StartCoroutine(dead());
         }
@@ -129,6 +138,25 @@ public class FPSController : MonoBehaviour
             gModeHealth.SetActive(true);
         }
 
+        //Music Stuff
+        if (musicFadeOutEnabled)
+        {
+            if (MusicSource.volume <= 0.1f)
+            {
+                MusicSource.Stop();
+                musicFadeOutEnabled = false;
+            }
+            else
+            {
+                float newVolume = MusicSource.volume - (0.2f * Time.deltaTime);  //change 0.01f to something else to adjust the rate of the volume dropping
+                if (newVolume < 0f)
+                {
+                    newVolume = 0f;
+                }
+                MusicSource.volume = newVolume;
+            }
+
+        }
     }
     private void OnTriggerStay(Collider other)
     {
@@ -201,6 +229,8 @@ public class FPSController : MonoBehaviour
         shotGun.SetActive(false);
         walkSpeed = 0;
         runSpeed = 0;
+        jumpPower = 0;
+        musicFadeOutEnabled = true;
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -235,5 +265,17 @@ public class FPSController : MonoBehaviour
         walkSpeed = walkSpeed - 6;
         runSpeed = runSpeed - 6;
         hasStar = false;
+    }
+    //Music Stuff
+    public void PlayerMusic()
+    {
+        musicFadeOutEnabled = false;
+        MusicSource.volume = 1f;
+        MusicSource.Play();
+    }
+
+    public void FadeOutMusic()
+    {
+        musicFadeOutEnabled = true;
     }
 }

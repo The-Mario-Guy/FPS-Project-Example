@@ -3,7 +3,17 @@ guid: 44c492aeb0fdf48238e76b9f52eb97a5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BRICK
+    second: {fileID: 2100000, guid: f2861f4418f114889802c9ba7687ba8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor
+    second: {fileID: 2100000, guid: 9434f611c07cb400994827efdd3f64f2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
