@@ -19,7 +19,7 @@ public class Enemies : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		GameObject[] enemies = GameObject.FindGameObjectsWithTag("EnemyBullet");
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Goomba");
 		enemiesLeft = enemies.Length;
 		enemyCount.text = enemiesLeft.ToString();
 		if (enemiesLeft == 0)

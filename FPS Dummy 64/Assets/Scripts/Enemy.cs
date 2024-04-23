@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
 
         if (FPSControllerscript.health == 0)
         {
-            MoveSpeed = -MoveSpeed;
+            MoveSpeed = 0;
         }
         if (enemyHealth == 0)
         {

@@ -160,16 +160,16 @@ public class FPSController : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Goomba"))
+        /*if (other.gameObject.CompareTag("EnemyBullet"))
         {
             StartCoroutine(Hurt());
         }
         else
         {
             isHurt = false;
-        }
+        }*/
 
-        if (other.gameObject.CompareTag("EnemyBullet"))
+        if (other.gameObject.CompareTag("Goomba"))
         {
             StartCoroutine(Hurt());
         }
@@ -181,7 +181,7 @@ public class FPSController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Goomba"))
+        /*if (other.gameObject.CompareTag("Goomba"))
         {
             StartCoroutine(Hurt());
         }
@@ -204,7 +204,7 @@ public class FPSController : MonoBehaviour
             // Destroy(other.gameObject);
             letsgo.Play(1);
             StartCoroutine(MegaMushroom());
-        }
+        }*/
 
         if (other.gameObject.CompareTag("Star") && !hasStar)
         {
@@ -219,7 +219,7 @@ public class FPSController : MonoBehaviour
         health = health - 1;
         healthCounter.text = health.ToString();
         yield return new WaitForSeconds(0.4f);
-        isHurt = false;
+        //isHurt = false;
     }
     private IEnumerator dead()
     {

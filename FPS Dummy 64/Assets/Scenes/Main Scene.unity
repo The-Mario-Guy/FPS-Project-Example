@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.8250534, g: 0.75624573, b: 0.66359234, a: 1}
+  m_IndirectSpecularColor: {r: 0.82487494, g: 0.7561193, b: 0.6636328, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 17755973}
   m_Layer: 0
   m_Name: Enemy (14)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2719,7 +2719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timerText: {fileID: 90783264}
   timerType: 0
-  timeToDisplay: 121
+  timeToDisplay: 241
   _isRunning: 1
 --- !u!1 &92882734
 GameObject:
@@ -3987,7 +3987,7 @@ GameObject:
   - component: {fileID: 152056243}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8865,7 +8865,7 @@ GameObject:
   - component: {fileID: 353426299}
   m_Layer: 0
   m_Name: Enemy (23)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9169,7 +9169,7 @@ GameObject:
   - component: {fileID: 356486728}
   m_Layer: 0
   m_Name: Enemy (6)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10505,7 +10505,7 @@ GameObject:
   - component: {fileID: 403240957}
   m_Layer: 0
   m_Name: Enemy (22)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10698,7 +10698,7 @@ GameObject:
   - component: {fileID: 405694907}
   - component: {fileID: 405694906}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: OoB
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12132,7 +12132,7 @@ GameObject:
   - component: {fileID: 468664702}
   m_Layer: 0
   m_Name: Enemy (16)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13402,7 +13402,7 @@ GameObject:
   - component: {fileID: 498974184}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13600,7 +13600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &501409130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15897,7 +15897,7 @@ GameObject:
   - component: {fileID: 627078110}
   m_Layer: 0
   m_Name: Enemy (13)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19644,7 +19644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &748921096
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20768,7 +20768,7 @@ GameObject:
   - component: {fileID: 776469376}
   m_Layer: 0
   m_Name: Enemy (25)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21070,7 +21070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &790959896
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21549,7 +21549,7 @@ GameObject:
   - component: {fileID: 804562439}
   m_Layer: 0
   m_Name: Enemy (15)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22065,7 +22065,7 @@ GameObject:
   - component: {fileID: 826258509}
   m_Layer: 0
   m_Name: Enemy (4)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22369,7 +22369,7 @@ GameObject:
   - component: {fileID: 841172745}
   m_Layer: 0
   m_Name: Enemy (10)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24116,7 +24116,7 @@ GameObject:
   - component: {fileID: 894643793}
   m_Layer: 0
   m_Name: Enemy (26)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24844,7 +24844,7 @@ GameObject:
   - component: {fileID: 914506485}
   m_Layer: 0
   m_Name: Enemy (12)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30163,7 +30163,7 @@ GameObject:
   - component: {fileID: 1131847860}
   m_Layer: 0
   m_Name: Enemy (5)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30466,7 +30466,7 @@ GameObject:
   - component: {fileID: 1138270268}
   m_Layer: 0
   m_Name: Enemy (3)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32034,7 +32034,7 @@ GameObject:
   - component: {fileID: 1200304135}
   m_Layer: 0
   m_Name: Enemy (17)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32231,7 +32231,7 @@ GameObject:
   - component: {fileID: 1210537502}
   m_Layer: 0
   m_Name: Enemy (21)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32709,7 +32709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1220219939
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33884,7 +33884,7 @@ GameObject:
   - component: {fileID: 1255504731}
   m_Layer: 0
   m_Name: Enemy (9)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34201,7 +34201,7 @@ GameObject:
   - component: {fileID: 1270670847}
   m_Layer: 0
   m_Name: Enemy (18)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35802,7 +35802,7 @@ GameObject:
   - component: {fileID: 1344191323}
   m_Layer: 0
   m_Name: Enemy (11)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36692,7 +36692,7 @@ GameObject:
   - component: {fileID: 1379643032}
   m_Layer: 0
   m_Name: Enemy (19)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42076,7 +42076,7 @@ GameObject:
   - component: {fileID: 1563546604}
   m_Layer: 0
   m_Name: Enemy (2)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43276,7 +43276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1611718936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46480,7 +46480,7 @@ GameObject:
   - component: {fileID: 1789863696}
   m_Layer: 0
   m_Name: Enemy (27)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46894,7 +46894,7 @@ GameObject:
   - component: {fileID: 1800816162}
   m_Layer: 0
   m_Name: Enemy (8)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51541,7 +51541,7 @@ GameObject:
   - component: {fileID: 1974698886}
   m_Layer: 0
   m_Name: Enemy (24)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53979,7 +53979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2077906845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55183,7 +55183,7 @@ GameObject:
   - component: {fileID: 2115642269}
   m_Layer: 0
   m_Name: Enemy (20)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55924,7 +55924,7 @@ GameObject:
   - component: {fileID: 2138417271}
   m_Layer: 0
   m_Name: Enemy (7)
-  m_TagString: EnemyBullet
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
