@@ -62,7 +62,7 @@ public class GunScripts : MonoBehaviour
         {
             StartCoroutine(shootingFace());
         }
-        if (amo <= 0)
+        if (amo < 15)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -97,7 +97,7 @@ public class GunScripts : MonoBehaviour
 
     private IEnumerator shootingFace()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         isShooting = false;
     }
 

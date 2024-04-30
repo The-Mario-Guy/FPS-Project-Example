@@ -16,7 +16,8 @@ public class DemoManager : MonoBehaviour
         _fade = demoFader.GetComponent<Animator>();
 
         demoFader.SetActive(false);
-       
+        StartCoroutine(DemoTimer());
+
     }
 
     // Update is called once per frame
@@ -24,12 +25,9 @@ public class DemoManager : MonoBehaviour
     {
         if (!Input.anyKeyDown) 
         {
-            StartCoroutine(DemoTimer());
+            
         }
-        else
-        {
-            StartCoroutine(demoStop());
-        }
+      
 
         if(Input.GetKeyDown(KeyCode.Return))
         {
@@ -42,7 +40,7 @@ public class DemoManager : MonoBehaviour
 
     IEnumerator DemoTimer()
     {
-        yield return new WaitForSeconds(30f);//wait 30 secs for demo to play
+        yield return new WaitForSeconds(1f);//wait 30 secs for demo to play
         demoFader.SetActive(true); //fades scene out
         demoStart = true;
         yield return new WaitForSeconds(2f);
@@ -52,19 +50,8 @@ public class DemoManager : MonoBehaviour
         demoBegin = false;
         demo.SetActive(true); //starts demo video
         yield return new WaitForSeconds(66f);
-        demoBegin = false;
         demo.SetActive(false);
-        demoStart = true;
-        yield return new WaitForSeconds(1f);
-        demoBegin = true;
-        yield return new WaitForSeconds(0.5f);
-
     }
 
-    IEnumerator demoStop()
-    {
-        StopCoroutine(DemoTimer());
-        yield return new WaitForSeconds(5f);
-        StartCoroutine(DemoTimer());
-    }
+    
 }

@@ -197,19 +197,20 @@ public class FPSController : MonoBehaviour
         else
         {
             isHurt = false;
-        }
+        }*/
 
         if (other.gameObject.CompareTag("Mega") && !isMega)
         {
             // Destroy(other.gameObject);
             letsgo.Play(1);
             StartCoroutine(MegaMushroom());
-        }*/
+        }
 
-        if (other.gameObject.CompareTag("Star") && !hasStar)
+        if (other.gameObject.CompareTag("Mush"))
         {
-
-            StartCoroutine(starPowerUp());
+            letsgo.Play(1);
+            health = health + 50;
+            healthCounter.text = health.ToString();
         }
     }
 
@@ -253,19 +254,7 @@ public class FPSController : MonoBehaviour
         healthCounter.text = health.ToString();
         isMega = false;
     }
-    private IEnumerator starPowerUp()
-    {
-        hasStar = true;
-        health = health + 9999999;
-        healthCounter.text = health.ToString();
-        walkSpeed = walkSpeed + 6;
-        runSpeed = runSpeed + 6;
-        yield return new WaitForSeconds(10f);
-        health = health - 9999999;
-        walkSpeed = walkSpeed - 6;
-        runSpeed = runSpeed - 6;
-        hasStar = false;
-    }
+  
     //Music Stuff
     public void PlayerMusic()
     {
