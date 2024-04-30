@@ -40,7 +40,7 @@ public class DemoManager : MonoBehaviour
 
     IEnumerator DemoTimer()
     {
-        yield return new WaitForSeconds(1f);//wait 30 secs for demo to play
+        yield return new WaitForSeconds(30f);//wait 30 secs for demo to play
         demoFader.SetActive(true); //fades scene out
         demoStart = true;
         yield return new WaitForSeconds(2f);
