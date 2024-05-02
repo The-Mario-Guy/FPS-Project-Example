@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DemoManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DemoManager : MonoBehaviour
     public Animator _fade;
     public bool demoStart;
     public bool demoBegin;
+
     void Start()
     {
         demo.SetActive(false);
@@ -34,8 +36,17 @@ public class DemoManager : MonoBehaviour
             Destroy(demo.gameObject);
             demoFader.SetActive(false);
         }
-            _fade.SetBool("demoStart", demoStart);
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            demoStart = true;
+            demoBegin = true; //fades scene in to show demo
+            demo.SetActive(true);
+        }
+
+
+        _fade.SetBool("demoStart", demoStart);
         _fade.SetBool("demoBegin", demoBegin);
+
     }
 
     IEnumerator DemoTimer()
@@ -49,8 +60,9 @@ public class DemoManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         demoBegin = false;
         demo.SetActive(true); //starts demo video
-        yield return new WaitForSeconds(66f);
+        yield return new WaitForSeconds(67.2f);
         demo.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 
     
